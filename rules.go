@@ -6,14 +6,14 @@ import (
 	"regexp"
 )
 
-func MinValueValidator(minValue int) FieldValidator {
+func MinLengthValidator(minLength int) FieldValidator {
 	return func(value interface{}) error {
-		num, ok := value.(int)
+		strValue, ok := value.(string)
 		if !ok {
-			return errors.New("must be an integer")
+			return errors.New("must be a string")
 		}
-		if num < minValue {
-			return fmt.Errorf("must be greater than or equal to %d", minValue)
+		if len(strValue) < minLength {
+			return fmt.Errorf("must have a minimum length of %d", minLength)
 		}
 		return nil
 	}
