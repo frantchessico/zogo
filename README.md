@@ -58,7 +58,10 @@ func main() {
 Zogo provides the following validation rules that you can use to validate your data fields:
 
 - `zogo.MinValueValidator(minValue int)`: Validates that a numeric value is greater than or equal to the specified minimum value.
+- `zogo.MinLengthValidator(minLength int)`: Validates that a string value has a minimum length.
 - `zogo.StringNotEmptyValidator(value interface{})`: Validates that a string value is not empty.
+- `zogo.MaxLengthValidator(maxLength int)`: Validates that a string value has a maximum length.
+- `zogo.MaxValueValidator(maxValue float64)`: Validates that a numeric value is less than or equal to the specified maximum value.
 - `zogo.EmailSchema(value interface{})`: Validates that a string value is a valid email address.
 - `zogo.BooleanSchema(value interface{})`: Validates boolean values (true or false).
 - `zogo.StringSchema(value interface{})`: Validates string values.

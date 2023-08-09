@@ -6,6 +6,7 @@ import (
 	"regexp"
 )
 
+
 func MinLengthValidator(minLength int) FieldValidator {
 	return func(value interface{}) error {
 		strValue, ok := value.(string)
@@ -14,6 +15,32 @@ func MinLengthValidator(minLength int) FieldValidator {
 		}
 		if len(strValue) < minLength {
 			return fmt.Errorf("must have a minimum length of %d", minLength)
+		}
+		return nil
+	}
+}
+
+func MinValueValidator(minValue int) FieldValidator {
+	return func(value interface{}) error {
+		num, ok := value.(int)
+		if !ok {
+			return errors.New("must be an integer")
+		}
+		if num < minValue {
+			return fmt.Errorf("must be greater than or equal to %d", minValue)
+		}
+		return nil
+	}
+}
+
+func MaxLengthValidator(maxLength int) FieldValidator {
+	return func(value interface{}) error {
+		strValue, ok := value.(string)
+		if !ok {
+			return errors.New("must be a string")
+		}
+		if len(strValue) > maxLength {
+			return fmt.Errorf("must have a maximum length of %d", maxLength)
 		}
 		return nil
 	}
