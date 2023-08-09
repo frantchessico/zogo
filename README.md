@@ -1,6 +1,6 @@
 # Zogo - Custom Validation Library for Go
 
-Zogo is a custom validation library for Go that allows you to define and apply various validation rules to your data. It is inspired by Zod's validation.
+Zogo is a custom validation library for Go that allows you to define and apply various validation rules to your data. It is inspired by Zod's zogo.
 
 ## Features
 
@@ -32,10 +32,10 @@ import (
 func main() {
     validator := zogo.NewRuleValidator()
 
-    validator.AddRule("age", validation.MinValueValidator(18))
-    validator.AddRule("name", validation.StringNotEmptyValidator)
-    validator.AddRule("email", validation.EmailSchema)
-    validator.AddRule("password", validation.MinValueValidator(4))
+    validator.AddRule("age", zogo.MinValueValidator(18))
+    validator.AddRule("name", zogo.StringNotEmptyValidator)
+    validator.AddRule("email", zogo.EmailSchema)
+    validator.AddRule("password", zogo.MinValueValidator(4))
 
     data := map[string]interface{}{
         "age":     25,
@@ -57,12 +57,12 @@ func main() {
 
 Zogo provides the following validation rules that you can use to validate your data fields:
 
-- `validation.MinValueValidator(minValue int)`: Validates that a numeric value is greater than or equal to the specified minimum value.
-- `validation.StringNotEmptyValidator(value interface{})`: Validates that a string value is not empty.
-- `validation.EmailSchema(value interface{})`: Validates that a string value is a valid email address.
-- `validation.BooleanSchema(value interface{})`: Validates boolean values (true or false).
-- `validation.StringSchema(value interface{})`: Validates string values.
-- `validation.NumberSchema(value interface{})`: Validates numeric values.
+- `zogo.MinValueValidator(minValue int)`: Validates that a numeric value is greater than or equal to the specified minimum value.
+- `zogo.StringNotEmptyValidator(value interface{})`: Validates that a string value is not empty.
+- `zogo.EmailSchema(value interface{})`: Validates that a string value is a valid email address.
+- `zogo.BooleanSchema(value interface{})`: Validates boolean values (true or false).
+- `zogo.StringSchema(value interface{})`: Validates string values.
+- `zogo.NumberSchema(value interface{})`: Validates numeric values.
 
 
 ## Author
